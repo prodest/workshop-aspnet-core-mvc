@@ -2,8 +2,26 @@
 
 <div>
     <form method="post">
-        <label>Nome:</label>
-        <input type="text" asp-for="Nome" />
+        <div>
+            <label>Nome:</label>
+            <input type="text" asp-for="Nome" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="text" asp-for="Email" />
+        </div>
+        <div>
+            <label>Telefone:</label>
+            <input type="text" asp-for="Telefone" />
+        </div>
+        <div>
+            <label>Estará presente?</label>
+            <select class="form-control" asp-for="Presenca">
+                <option value="">Escolha uma opção</option>
+                <option value="true">Sim, eu vou!</option>
+                <option value="false">Não, eu não poderei ir.</option>
+            </select>
+        </div>
         <button type="submit" asp-controller="Home" asp-action="Confirmar">Confirmar</button>
     </form>
 </div>
