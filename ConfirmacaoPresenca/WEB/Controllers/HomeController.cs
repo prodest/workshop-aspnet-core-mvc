@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WEB.Models;
 
 namespace WEB.Controllers
 {
@@ -16,6 +17,13 @@ namespace WEB.Controllers
         {
             ViewData["title"] = "Confirmação de presença";
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Confirmar(RespostaConvidadoViewModel resposta)
+        {
+            ViewData["title"] = "Obrigado";
+            return View("Agradecimento", resposta);
         }
     }
 }
