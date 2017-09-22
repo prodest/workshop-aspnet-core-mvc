@@ -3,24 +3,28 @@
 <div>
     <form method="post">
         <div>
-            <label>Nome:</label>
+            <label asp-for="Nome">Nome:</label>
             <input type="text" asp-for="Nome" />
+            <span asp-validation-for="Nome"></span>
         </div>
         <div>
-            <label>Email:</label>
+            <label asp-for="Email">Email:</label>
             <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
         </div>
         <div>
-            <label>Telefone:</label>
+            <label asp-for="Telefone">Telefone:</label>
             <input type="text" asp-for="Telefone" />
+            <span asp-validation-for="Telefone"></span>
         </div>
         <div>
-            <label>Estará presente?</label>
+            <label asp-for="Presenca">Estará presente?</label>
             <select class="form-control" asp-for="Presenca">
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim, eu vou!</option>
                 <option value="false">Não, eu não poderei ir.</option>
             </select>
+            <span asp-validation-for="Presenca"></span>
         </div>
         <button type="submit" asp-controller="Home" asp-action="Confirmar">Confirmar</button>
     </form>

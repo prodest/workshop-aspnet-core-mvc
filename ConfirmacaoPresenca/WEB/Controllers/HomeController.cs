@@ -22,8 +22,14 @@ namespace WEB.Controllers
         [HttpPost]
         public IActionResult Confirmar(RespostaConvidadoViewModel resposta)
         {
-            ViewData["title"] = "Obrigado";
-            return View("Agradecimento", resposta);
+            if (ModelState.IsValid)
+            {
+                ViewData["title"] = "Obrigado";
+                return View("Agradecimento", resposta);
+            } else
+            {
+                return View("Formulario");
+            }
         }
     }
 }

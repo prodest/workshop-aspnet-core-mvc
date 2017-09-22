@@ -1,3 +1,13 @@
 ﻿@model RespostaConvidadoViewModel
 
-    <h3>Obrigado, @Model?.Nome</h3>
+    <h3>Obrigado, @Model?.Nome...</h3>
+    <div>
+        @if (@Model.Presenca == true)
+        {
+            <p>Que bom que você vai!</p>
+        } else
+        {
+            <p>Que pena que não irá, mas obrigado por nos avisar</p>
+        }
+    </div>    
+

@@ -3,3 +3,5 @@
 [Bb]in/
 [Oo]bj/
 /~$workshop-aspnet-core-mvc.pptx
+wwwroot/lib 
+wwwroot/dist
