@@ -1,7 +1,7 @@
+**/wwwroot/lib/ 
+**/wwwroot/dist/
 */.vs/
 *.[Uu]ser
 [Bb]in/
 [Oo]bj/
 /~$workshop-aspnet-core-mvc.pptx
-wwwroot/lib 
-wwwroot/dist
