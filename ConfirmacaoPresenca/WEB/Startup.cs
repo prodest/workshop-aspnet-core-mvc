@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Infraestrutura.Repositorios;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Negocio;
+using Negocio.Base;
+using Negocio.Services.Base;
 
 namespace WEB
 {
@@ -12,6 +16,11 @@ namespace WEB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddAutoMapper();
+
+            //Dependências
+            services.AddScoped<IConfirmacaoService, ConfirmacaoService>();
+            services.AddScoped<IRespostasConvidadosRepositorio, RespostasConvidadosRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

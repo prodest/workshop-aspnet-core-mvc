@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Negocio.Models
+{
+    public class RespostaConvidadoModel
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+
+        public string Email { get; set; }
+
+        public string Telefone { get; set; }
+
+        public bool? Presenca { get; set; }
+    }
+}
