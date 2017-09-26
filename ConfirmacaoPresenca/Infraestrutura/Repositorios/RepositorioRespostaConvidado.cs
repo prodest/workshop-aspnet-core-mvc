@@ -1,5 +1,6 @@
 ﻿using Negocio.Base;
 using Negocio.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Infraestrutura.Repositorios
@@ -15,11 +16,11 @@ namespace Infraestrutura.Repositorios
             }
         }
 
-        public IQueryable<RespostaConvidadoModel> ListarPresentes()
+        public IEnumerable<RespostaConvidadoModel> ListarPresentes()
         {
             using (var db = new ConfirmacaoPresencaContext())
             {
-                return db.Respostas.Where(r => r.Presenca == true);
+                return db.Respostas.Where(r => r.Presenca == true).ToList();
             }
         }
 
@@ -29,6 +30,8 @@ namespace Infraestrutura.Repositorios
             {
                 return db.Respostas.SingleOrDefault(r => r.Email == email);
             }
+
+            
         }
     }
 }

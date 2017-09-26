@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Negocio.Models;
-using System;
 
 namespace Infraestrutura
 {
@@ -12,6 +11,6 @@ namespace Infraestrutura
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ConfirmacaoPresenca;Trusted_Connection=True;");
         }
-
+        
     }
 }

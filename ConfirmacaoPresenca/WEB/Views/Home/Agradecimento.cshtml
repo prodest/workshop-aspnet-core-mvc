@@ -6,6 +6,9 @@
             @if (@Model.Presenca == true)
             {
                 <p>Que bom irá participar. Contamos com você!</p>
+                <div class="text-center">
+                    <a class="btn btn-success" asp-controller="Home" asp-action="ListaPresentes">Confira quem também irá participar!</a>
+                </div>
             }
             else
             {

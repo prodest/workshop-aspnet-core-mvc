@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Negocio.Models;
 using Negocio.Services.Base;
+using System.Collections.Generic;
 using WEB.ViewModels;
 
 namespace WEB.Controllers
@@ -22,6 +23,14 @@ namespace WEB.Controllers
         {
             ViewData["title"] = "Início";
             return View("PaginaInicial");
+        }
+
+        [HttpGet]
+        public IActionResult ListaPresentes()
+        {
+            ViewData["title"] = "Lista de presentes";
+            IEnumerable <RespostaConvidadoViewModel> listaPresentes = _mapper.Map<IEnumerable<RespostaConvidadoViewModel>>(_service.ListarPresentes());
+            return View(listaPresentes);
         }
 
         [HttpGet]

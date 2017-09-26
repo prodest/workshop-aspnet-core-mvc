@@ -1,0 +1,30 @@
+﻿@model IEnumerable<RespostaConvidadoViewModel>
+
+<div class="panel panel-success">
+    <div class="panel-heading text-center"><h4>Lista de Confirmações de Presença</h4></div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr class="success">
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var respostaConvidado in @Model)
+                {
+                    <tr>
+                        <td>@respostaConvidado.Nome</td>
+                        <td>@respostaConvidado.Email</td>
+                        <td>@respostaConvidado.Telefone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="text-center">
+    <p class="text-success"><strong>Ainda não confirmou sua presença?</strong></p>
+    <a class="btn btn-success" asp-controller="Home" asp-action="Formulario">Confirme aqui</a>
+</div>
