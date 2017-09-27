@@ -20,6 +20,7 @@ namespace WEB
             services.AddMvc();
             services.AddAutoMapper();
 
+            //Dependência do Context
             services.AddDbContext<ConfirmacaoPresencaContext>(o => o.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ConfirmacaoPresenca;Trusted_Connection=True;"));
 
             //Dependências
