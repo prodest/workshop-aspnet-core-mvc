@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Negocio.Models;
+using System;
 
 namespace Infraestrutura
 {
@@ -7,9 +8,8 @@ namespace Infraestrutura
     {
         public DbSet<RespostaConvidadoModel> Respostas { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ConfirmacaoPresencaContext(DbContextOptions<ConfirmacaoPresencaContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ConfirmacaoPresenca;Trusted_Connection=True;");
         }
         
     }

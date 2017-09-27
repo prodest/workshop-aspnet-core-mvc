@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Infraestrutura;
 using Infraestrutura.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Negocio;
 using Negocio.Base;
@@ -17,6 +19,8 @@ namespace WEB
         {
             services.AddMvc();
             services.AddAutoMapper();
+
+            services.AddDbContext<ConfirmacaoPresencaContext>(o => o.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ConfirmacaoPresenca;Trusted_Connection=True;"));
 
             //Dependências
             services.AddScoped<IConfirmacaoService, ConfirmacaoService>();

@@ -8,7 +8,7 @@ namespace Negocio.Base
 {
     public interface IRespostasConvidadosRepositorio
     {
-        IEnumerable<RespostaConvidadoModel> ListarPresentes(); 
+        IQueryable<RespostaConvidadoModel> ListarPresentes(); 
         void Confirmar(RespostaConvidadoModel resposta);
         RespostaConvidadoModel Buscar(string email);
     }

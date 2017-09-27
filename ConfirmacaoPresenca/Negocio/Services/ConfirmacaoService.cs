@@ -23,7 +23,7 @@ namespace Negocio
 
         public IEnumerable<RespostaConvidadoModel> ListarPresentes()
         {
-            return _repositorio.ListarPresentes();
+            return _repositorio.ListarPresentes().ToList();
         }
         
     }

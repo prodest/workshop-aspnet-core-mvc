@@ -1,37 +1,40 @@
 ﻿using Negocio.Base;
 using Negocio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Infraestrutura.Repositorios
 {
-    public class RespostasConvidadosRepositorio : IRespostasConvidadosRepositorio
+    public class RespostasConvidadosRepositorio : IRespostasConvidadosRepositorio, IDisposable
     {
+        private ConfirmacaoPresencaContext _context;
+
+        public RespostasConvidadosRepositorio(ConfirmacaoPresencaContext context)
+        {
+            _context = context;
+        }
+
         public void Confirmar(RespostaConvidadoModel resposta)
         {
-            using (var db = new ConfirmacaoPresencaContext())
-            {
-                db.Respostas.Add(resposta);
-                db.SaveChanges();
-            }
+            _context.Respostas.Add(resposta);
+            _context.SaveChanges();
         }
 
-        public IEnumerable<RespostaConvidadoModel> ListarPresentes()
+        public IQueryable<RespostaConvidadoModel> ListarPresentes()
         {
-            using (var db = new ConfirmacaoPresencaContext())
-            {
-                return db.Respostas.Where(r => r.Presenca == true).ToList();
-            }
+            return _context.Respostas.Where(r => r.Presenca == true);
         }
 
-        public RespostaConvidadoModel Buscar (string email)
+        public RespostaConvidadoModel Buscar(string email)
         {
-            using (var db = new ConfirmacaoPresencaContext())
-            {
-                return db.Respostas.SingleOrDefault(r => r.Email == email);
-            }
-
-            
+            return _context.Respostas.SingleOrDefault(r => r.Email == email);
         }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
+
     }
 }
