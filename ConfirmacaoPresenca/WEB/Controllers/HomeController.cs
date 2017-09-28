@@ -59,6 +59,13 @@ namespace WEB.Controllers
                 return View("Formulario");
             }
         }
-        
+
+        [HttpGet]
+        public IActionResult Sobre()
+        {
+            ViewData["title"] = "Sobre";
+            return View();
+        }
+
     }
 }
