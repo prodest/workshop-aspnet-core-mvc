@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "jquery" : "^3.2.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "jquery-mask" : "^1.14.11"
   }
 }

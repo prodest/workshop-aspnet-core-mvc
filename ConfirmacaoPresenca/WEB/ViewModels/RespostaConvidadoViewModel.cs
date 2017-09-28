@@ -18,6 +18,8 @@ namespace WEB.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Favor informar seu telefone.")]
+        [MaxLength(11, ErrorMessage = "Que telefone é esse!?")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Informe um telefone válido")]
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "Favor escolher uma opção.")]
