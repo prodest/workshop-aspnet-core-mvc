@@ -18,13 +18,18 @@ namespace Negocio
 
         public void Confirmar(RespostaConvidadoModel resposta)
         {
-             _repositorio.Confirmar(resposta);
+            _repositorio.Confirmar(resposta);
         }
 
         public IEnumerable<RespostaConvidadoModel> ListarPresentes()
         {
             return _repositorio.ListarPresentes().ToList();
         }
-        
+
+        public bool EmailIsDuplicado(string email)
+        {
+            return _repositorio.Buscar(email) != null;
+        }
+
     }
 }

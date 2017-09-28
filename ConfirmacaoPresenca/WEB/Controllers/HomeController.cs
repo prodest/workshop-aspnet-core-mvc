@@ -41,18 +41,24 @@ namespace WEB.Controllers
         }
 
         [HttpPost]
-        public IActionResult Confirmar(RespostaConvidadoViewModel resposta)
+        public IActionResult Confirmar(RespostaConvidadoViewModel respostaConvidado)
         {
+            if (_service.EmailIsDuplicado(respostaConvidado?.Email))
+            {
+                ModelState.AddModelError("Email", "Esse e-mail já está cadastrado");
+            }
+
             if (ModelState.IsValid)
             {
-                _service.Confirmar(_mapper.Map<RespostaConvidadoModel>(resposta));
+                _service.Confirmar(_mapper.Map<RespostaConvidadoModel>(respostaConvidado));
                 ViewData["title"] = "Obrigado";
-                return View("Agradecimento", resposta);
+                return View("Agradecimento", respostaConvidado);
             }
             else
             {
                 return View("Formulario");
             }
         }
+        
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Infraestrutura.Repositorios
 {
-    public class RespostasConvidadosRepositorio : IRespostasConvidadosRepositorio, IDisposable
+    public class RespostasConvidadosRepositorio : IRespostasConvidadosRepositorio
     {
         private ConfirmacaoPresencaContext _context;
 
@@ -28,12 +28,7 @@ namespace Infraestrutura.Repositorios
 
         public RespostaConvidadoModel Buscar(string email)
         {
-            return _context.Respostas.SingleOrDefault(r => r.Email == email);
-        }
-
-        public void Dispose()
-        {
-            _context.Dispose();
+            return _context.Respostas.FirstOrDefault(r => r.Email == email);
         }
     }
 }

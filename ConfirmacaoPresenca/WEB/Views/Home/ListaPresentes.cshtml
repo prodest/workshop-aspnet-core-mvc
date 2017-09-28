@@ -17,7 +17,7 @@
                     <tr>
                         <td>@respostaConvidado.Nome</td>
                         <td>@respostaConvidado.Email</td>
-                        <td>@respostaConvidado.Telefone</td>
+                        <td>@Convert.ToInt64(respostaConvidado.Telefone).ToString(@"\(00\) 000000000")</td>
                     </tr>
                 }
             </tbody>

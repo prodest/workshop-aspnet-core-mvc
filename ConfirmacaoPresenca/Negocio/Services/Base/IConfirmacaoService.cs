@@ -7,6 +7,7 @@ namespace Negocio.Services.Base
     {
         IEnumerable<RespostaConvidadoModel> ListarPresentes();
         void Confirmar(RespostaConvidadoModel resposta);
+        bool EmailIsDuplicado(string email);
 
     }
 }

@@ -18,11 +18,13 @@ namespace WEB.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Favor informar seu telefone.")]
-        [MaxLength(11, ErrorMessage = "Que telefone é esse!?")]
+        [MinLength(10, ErrorMessage = "O telefone deve conter no mínimo 10 dígitos")]
+        [MaxLength(11, ErrorMessage = "O telefone deve conter no máximo 11 dígitos")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Informe um telefone válido")]
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "Favor escolher uma opção.")]
         public bool? Presenca { get; set; }
+        
     }
 }
